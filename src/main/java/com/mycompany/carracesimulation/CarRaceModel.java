@@ -6,7 +6,7 @@ package com.mycompany.carracesimulation;
  */
 public class CarRaceModel {
 
-    public class Car {
+    public static class Car {
         public Type type;
         public int num;
         public double[][] position;
@@ -14,11 +14,23 @@ public class CarRaceModel {
         public Color color;
         
         public Car(Type type, int num, double[][] position, double speed, Color color) {
-            type = this.type;
-            num = this.num;
-            position = this.position;
-            speed = this.speed;
-            color = this.color;
+            this.type = type;
+            this.num = num;
+            this.position = position;
+            this.speed = speed;
+            this.color = color;
+        }
+        
+        public double getX() {
+            return position[0][0];
+        }
+        
+        public double getY() {
+            return position[0][1];
+        
+        }
+        public void setX(double x) {
+            position[0][0] = x;
         }
     }
     
