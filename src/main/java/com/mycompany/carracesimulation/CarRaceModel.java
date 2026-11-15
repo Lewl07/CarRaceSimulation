@@ -32,7 +32,6 @@ public class CarRaceModel {
         public double[][] position; // X position determines the final race ranking
         public double speed;        // pixels per second determined randomly
         public Color color;
-        public double baseSpeed;    // Cars run at different speed determined by Random
         public boolean finished;    // Whether the car has finished the race
         
         public Car(Type type, int num, double[][] position, double speed, Color color) {
@@ -59,6 +58,8 @@ public class CarRaceModel {
     private final Random random = new Random();
     private final List<Car> cars = new ArrayList<>();
     private final List<Car> finishOrder = new ArrayList<>();
+    private State state = State.IDLE;
+    private double speedMultiplier = 1.0;
 
     public CarRaceModel() {
         cars.add(new Car((Type.COUPE), 7, startPosition(0), 0, Color.RED));
