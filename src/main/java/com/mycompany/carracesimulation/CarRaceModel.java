@@ -7,7 +7,7 @@ package com.mycompany.carracesimulation;
 public class CarRaceModel {
     
     public static final double START_X = 15;
-    public static final double FINISH_X = 860;
+    public static final double FINISH_X = 860;      // pane is 900 px wide
     public static final double CAR_WIDTH = 80;
     public static final double LANE_HEIGHT = 90;
     public static final double MIN_SPEED = 0.5;
@@ -26,8 +26,10 @@ public class CarRaceModel {
         public Type type;
         public int num;
         public double[][] position;
-        public double speed;
+        public double speed;        // pixels per second
         public Color color;
+        public double baseSpeed;    // Cars run at different speed determined by Random
+        public boolean finished;    // Whether the car has finished the race
         
         public Car(Type type, int num, double[][] position, double speed, Color color) {
             this.type = type;
