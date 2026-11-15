@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
-   <padding>
-      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-   </padding>
-   <children>
-      <ImageView fitHeight="452.0" fitWidth="645.0">
-         <image>
-            <Image url="@../../../../../../../../../../../Desktop/CarsSketch/Red%20Coupe%20%237.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="452.0" fitWidth="645.0">
-         <image>
-            <Image url="@../../../../../../../../../../../Desktop/CarsSketch/Grey%20Sedan%20%239.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="452.0" fitWidth="645.0">
-         <image>
-            <Image url="@../../../../../../../../../../../Desktop/CarsSketch/Yellow%20SUV%20%231.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="452.0" fitWidth="645.0">
-         <image>
-            <Image url="@../../../../../../../../../../../Desktop/CarsSketch/Blue%20Supercar%20%2310.png" />
-         </image>
-      </ImageView>
-   </children>
-</Pane>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" />
