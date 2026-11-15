@@ -25,7 +25,7 @@ public class CarRaceModel {
     public static class Car {
         public Type type;
         public int num;
-        public double[][] position;
+        public double[][] position; // X position determines the final race ranking
         public double speed;        // pixels per second
         public Color color;
         public double baseSpeed;    // Cars run at different speed determined by Random
@@ -58,5 +58,9 @@ public class CarRaceModel {
     
     public enum Color {
         RED, YELLOW, WHITE, BLUE
+    }
+    
+    public enum State {
+        IDLE, RUNNING, PAUSED, FINISHED
     }
 }
