@@ -1,4 +1,4 @@
-package com.mycompany.car.race.simulation;
+package com.mycompany.carracesimulation;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("CarRaceView"));
         stage.setScene(scene);
         stage.show();
     }

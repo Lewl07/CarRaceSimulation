@@ -1,4 +1,4 @@
-package com.mycompany.car.race.simulation;
+package com.mycompany.carracesimulation;
 
 /**
  *

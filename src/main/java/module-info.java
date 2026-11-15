@@ -1,7 +1,7 @@
-module com.mycompany.car.race.simulation {
+module com.mycompany.carracesimulation {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens com.mycompany.car.race.simulation to javafx.fxml;
-    exports com.mycompany.car.race.simulation;
+    opens com.mycompany.carracesimulation to javafx.fxml;
+    exports com.mycompany.carracesimulation;
 }
