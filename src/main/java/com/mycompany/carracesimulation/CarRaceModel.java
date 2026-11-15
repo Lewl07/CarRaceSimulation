@@ -56,7 +56,9 @@ public class CarRaceModel {
         }
     }
     
+    private final Random random = new Random();
     private final List<Car> cars = new ArrayList<>();
+    private final List<Car> finishOrder = new ArrayList<>();
 
     public CarRaceModel() {
         cars.add(new Car((Type.COUPE), 7, startPosition(0), 0, Color.RED));
