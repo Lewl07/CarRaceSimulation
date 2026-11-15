@@ -5,6 +5,13 @@ package com.mycompany.carracesimulation;
  * @author Leo
  */
 public class CarRaceModel {
+    
+    public static final double START_X = 15;
+    public static final double FINISH_X = 860;
+    public static final double CAR_WIDTH = 80;
+    public static final double LANE_HEIGHT = 90;
+    public static final double MIN_SPEED = 0.5;
+    public static final double MAX_SPEED = 3.0;
 
     public static class Car {
         public Type type;
