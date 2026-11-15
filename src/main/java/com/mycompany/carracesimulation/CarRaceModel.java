@@ -1,5 +1,9 @@
 package com.mycompany.carracesimulation;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 /**
  *
  * @author Leo
@@ -26,7 +30,7 @@ public class CarRaceModel {
         public Type type;
         public int num;
         public double[][] position; // X position determines the final race ranking
-        public double speed;        // pixels per second
+        public double speed;        // pixels per second determined randomly
         public Color color;
         public double baseSpeed;    // Cars run at different speed determined by Random
         public boolean finished;    // Whether the car has finished the race
@@ -52,6 +56,21 @@ public class CarRaceModel {
         }
     }
     
+    private final List<Car> cars = new ArrayList<>();
+
+    public CarRaceModel() {
+        cars.add(new Car((Type.COUPE), 7, startPosition(0), 0, Color.RED));
+        cars.add(new Car((Type.SUV), 1, startPosition(1), 0, Color.YELLOW));
+        cars.add(new Car((Type.SEDAN), 9, startPosition(0), 0, Color.WHITE));
+        cars.add(new Car((Type.SUPERCAR), 10, startPosition(0), 0, Color.BLUE));
+    }
+    
+    private double[][] startPosition(int lane) {
+         return new double[][] {
+             {START_X, 15 + lane * LANE_HEIGHT }
+         };
+    }
+
     public enum Type {
         COUPE, SUV, SEDAN, SUPERCAR
     }
