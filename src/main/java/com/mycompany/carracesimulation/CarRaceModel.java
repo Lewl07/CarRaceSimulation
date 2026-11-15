@@ -12,6 +12,15 @@ public class CarRaceModel {
     public static final double LANE_HEIGHT = 90;
     public static final double MIN_SPEED = 0.5;
     public static final double MAX_SPEED = 3.0;
+    
+    private static final String GREETING = "WELCOME TO CAR RACE SIMULATOR!";
+    
+    private static final String[] SLIDE_IMAGES = {
+        "Blue Supercar #10.png",
+        "White Sedan #9.png",
+        "Red Coupe #7.png",
+        "Yellow SUV #1.png"
+    };
 
     public static class Car {
         public Type type;
