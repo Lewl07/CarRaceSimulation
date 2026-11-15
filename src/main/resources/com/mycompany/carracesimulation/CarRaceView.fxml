@@ -8,16 +8,16 @@
 
 <StackPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <StackPane prefHeight="600.0" prefWidth="900.0">
+      <StackPane fx:id="slideshowPane" prefHeight="600.0" prefWidth="900.0">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" />
-            <Label alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="506.0" prefWidth="560.0" text="WELCOME TO CAR RACE SIMULATION!">
+            <ImageView fx:id="slideImage" fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="greetingLbl" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="506.0" prefWidth="560.0" text="WELCOME TO CAR RACE SIMULATION!">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
          </children>
       </StackPane>
-      <StackPane prefHeight="600.0" prefWidth="900.0" />
+      <StackPane fx:id="racePane" prefHeight="600.0" prefWidth="900.0" />
    </children>
 </StackPane>
