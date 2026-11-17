@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 public class CarRaceController {
@@ -24,6 +26,8 @@ public class CarRaceController {
     
     public void initialize() {
         greetingLbl.setText(model.getGreeting());
+        racePane.setVisible(false);
+        racePane.setManaged(false);
         initSlideshow();
         
     }
@@ -44,6 +48,17 @@ public class CarRaceController {
         slideImage.setOpacity(0);
         
         Timeline tl = new Timeline();
+        
+        String audioPath = getClass()
+        .getResource("/com/mycompany/carracesimulation/sounds/carSoundFX.mp3")
+        .toExternalForm();
+        
+        Media media = new Media(audioPath);
+        MediaPlayer audioPlayer = new MediaPlayer(media);
+
+        audioPlayer.setStartTime(Duration.ZERO);
+        audioPlayer.setStopTime(Duration.seconds(16.9));
+        audioPlayer.play();
         
         tl.getKeyFrames().add(new KeyFrame(Duration.ZERO, e -> {
             slideImage.setImage(images.get(0));
@@ -97,8 +112,10 @@ public class CarRaceController {
             fadeOut.play();
         }));
         
+        // The StackPane slideshowPane disappears after timeline reaches 16.9s
         tl.getKeyFrames().add(new KeyFrame(Duration.seconds(16.9), e -> {
-            slideshowPane.setOpacity(0);
+            slideshowPane.setVisible(false);
+            slideshowPane.setVisible(false);
         }));
         
         tl.play();
