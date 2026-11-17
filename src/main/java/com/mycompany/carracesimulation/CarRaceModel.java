@@ -87,6 +87,23 @@ public class CarRaceModel {
         return SLIDE_IMAGES[i];
     }
     
+    // Race
+    public List<Car> getCars() {
+        return cars;
+    }
+    
+    public State getState() {
+        return state;
+    }
+    
+    public double getSpeedMultiplier() {
+        return speedMultiplier;
+    }
+    
+    public void setSpeedMultiplier(double num) {
+        speedMultiplier = Math.max(MIN_SPEED, Math.min(num, MAX_SPEED));
+    }
+    
     public enum Type {
         COUPE, SUV, SEDAN, SUPERCAR
     }
