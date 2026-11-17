@@ -20,9 +20,9 @@ public class CarRaceModel {
     private static final String GREETING = "WELCOME TO CAR RACE SIMULATOR!";
     
     private static final String[] SLIDE_IMAGES = {
-        "Blue Supercar #10.png",
-        "White Sedan #9.png",
         "Red Coupe #7.png",
+        "White Sedan #9.png",
+        "Blue Supercar #10.png",
         "Yellow SUV #1.png"
     };
 
