@@ -74,6 +74,19 @@ public class CarRaceModel {
          };
     }
 
+    // Slideshow
+    public String getGreeting() {
+        return GREETING;
+    }
+    
+    public int getSlideCount() {
+        return SLIDE_IMAGES.length;
+    }
+    
+    public String getSlideImageName(int i) {
+        return SLIDE_IMAGES[i];
+    }
+    
     public enum Type {
         COUPE, SUV, SEDAN, SUPERCAR
     }
