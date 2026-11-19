@@ -30,6 +30,8 @@ public class CarRaceController {
     private final CarRaceModel model = new CarRaceModel();
     private List<Image> images = new ArrayList<>();
     private final List<Group> carShapes = new ArrayList<>();
+    private final List<Line> backSpokes = new ArrayList<>();     // the line in each car's back wheel
+    private final List<Line> frontSpokes = new ArrayList<>();    // the line in each car's front wheel
 
     // slideshow
     @FXML private Label greetingLbl;
@@ -204,23 +206,42 @@ public class CarRaceController {
         Rectangle window = new Rectangle(26, 9, 28, 10);
         window.setFill(Color.LIGHTCYAN);
 
+        // Wheels: a black circle with a grey line through the middle
         Circle wheel1 = new Circle(20, 44, 8, Color.BLACK);
         Circle wheel2 = new Circle(60, 44, 8, Color.BLACK);
 
-        return new Group(body, cabin, window, wheel1, wheel2);
+        Line spoke1 = new Line(14, 44, 26, 44);
+        spoke1.setStroke(Color.LIGHTGRAY);
+        spoke1.setStrokeWidth(2);
+
+        Line spoke2 = new Line(54, 44, 66, 44);
+        spoke2.setStroke(Color.LIGHTGRAY);
+        spoke2.setStrokeWidth(2);
+
+        backSpokes.add(spoke1);
+        frontSpokes.add(spoke2);
+
+        return new Group(body, cabin, window, numberBackground, number, wheel1, wheel2, spoke1, spoke2);
     }
     
-        /** One tick: the model moves the cars, then the screen shows where they are. */
+        /** One tick: the model moves the cars, then the screen shows where they are.
+         */
     private void updateRace() {
         model.update();
         
         if (model.getState() == State.IDLE) {
             trophyImage.setVisible(false);
         }
-
+        
         for (int i = 0; i < carShapes.size(); i++) {
-            carShapes.get(i).setLayoutX(model.getCars().get(i).getX());   // only X changes
+            double x = model.getCars().get(i).getX();
+            carShapes.get(i).setLayoutX(x);       // only X changes
+
+        // The wheel lines turn clockwise: 7 degrees for every pixel the car moves
+            backSpokes.get(i).setRotate(x * 7);
+            frontSpokes.get(i).setRotate(x * 7);
         }
+        
         messageLbl.setText(model.getMessage());
         
         if (model.getState() == State.FINISHED) {
