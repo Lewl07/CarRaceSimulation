@@ -2,11 +2,13 @@ package com.mycompany.carracesimulation;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -16,13 +18,17 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class CarRaceController {
     
     private final CarRaceModel model = new CarRaceModel();
     private List<Image> images = new ArrayList<>();
+    private final List<Group> carShapes = new ArrayList<>();
 
     // slideshow
     @FXML private Label greetingLbl;
@@ -41,15 +47,16 @@ public class CarRaceController {
     @FXML private Slider speedSlider;
     @FXML private Label multiplierLbl;
     
+    @FXML private Label messageLbl;
+    
     @FXML private Line line1;
     @FXML private Line line2;
     @FXML private Line line3;
     
     public void initialize() {
         greetingLbl.setText(model.getGreeting());
-        
-        
-        // Scale the whole track (lines, and later the cars) with the window.
+
+        // Scale the whole track (lines and cars) with the window.
         // 900 and 380 are the track's design size. Using the smaller ratio keeps the proportions.
         trackPane.scaleXProperty().bind(Bindings.min(
                 trackHolder.widthProperty().divide(900),
@@ -62,6 +69,24 @@ public class CarRaceController {
 //        initSlideshow();
         
 
+        // The slideshow shows first, hence hide the race screen for now
+        racePane.setVisible(false);
+        racePane.setManaged(false);
+
+        // Draw the 4 cars. Y is set once (the lane); only X changes during the race.
+        for (CarRaceModel.Car car : model.getCars()) {
+            Group shape = makeCar(car);
+            shape.setLayoutY(car.getY());
+            carShapes.add(shape);
+            trackPane.getChildren().add(shape);
+        }
+
+        // Race loop: every 16 ms, move the cars and refresh the screen
+        Timeline raceLoop = new Timeline(new KeyFrame(Duration.millis(16), e -> updateRace()));
+        raceLoop.setCycleCount(Animation.INDEFINITE);
+        raceLoop.play();
+
+        initSlideshow();
     }
 
     /**
@@ -154,5 +179,26 @@ public class CarRaceController {
         
         tl.play();
     }
+
+    /** Build one car out of shapes. Coordinates are measured from the car's own top-left corner.
+     */
+    private Group makeCar(CarRaceModel.Car car) {
+        Color color = Color.valueOf(car.color.name());     // RED becomes Color.RED
+
+        Rectangle body = new Rectangle(0, 20, 80, 22);
+        body.setFill(color);
+
+        Rectangle cabin = new Rectangle(20, 6, 40, 16);
+        cabin.setFill(color.darker());
+
+        Rectangle window = new Rectangle(26, 9, 28, 10);
+        window.setFill(Color.LIGHTCYAN);
+
+        Circle wheel1 = new Circle(20, 44, 8, Color.BLACK);
+        Circle wheel2 = new Circle(60, 44, 8, Color.BLACK);
+
+        return new Group(body, cabin, window, wheel1, wheel2);
+    }
+    
     
 }
