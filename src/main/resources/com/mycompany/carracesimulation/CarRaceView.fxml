@@ -56,10 +56,10 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="trophyImage" fitHeight="85.0" fitWidth="85.0" layoutX="285.0" layoutY="35.0" managed="false" preserveRatio="true" visible="false">
-                                  <image>
-                                 <Image url="@images/trophy.png" />
-                             </image>
+                              <ImageView fx:id="trophyImage" fitHeight="85.0" fitWidth="85.0" layoutX="286.0" layoutY="43.0" visible="false">
+                                 <image>
+                                    <Image url="@images/trophyImage.png" />
+                                 </image>
                               </ImageView>
                            </children>
                         </AnchorPane>

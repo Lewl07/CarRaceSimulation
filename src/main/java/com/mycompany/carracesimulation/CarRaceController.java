@@ -200,5 +200,22 @@ public class CarRaceController {
         return new Group(body, cabin, window, wheel1, wheel2);
     }
     
+        /** One tick: the model moves the cars, then the screen shows where they are. */
+    private void updateRace() {
+        model.update();
+        
+        if (model.getState() == State.IDLE) {
+            trophyImage.setVisible(false);
+        }
+
+        for (int i = 0; i < carShapes.size(); i++) {
+            carShapes.get(i).setLayoutX(model.getCars().get(i).getX());   // only X changes
+        }
+        messageLbl.setText(model.getMessage());
+        
+        if (model.getState() == State.FINISHED) {
+            trophyImage.setVisible(true);
+        }
+    }
     
 }

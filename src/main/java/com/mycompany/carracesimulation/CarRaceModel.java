@@ -116,6 +116,10 @@ public class CarRaceModel {
     public void setSpeedMultiplier(double num) {
         speedMultiplier = Math.max(MIN_SPEED, Math.min(num, MAX_SPEED));
     }
+    
+    public List<Car> getFinishOrder() {
+        return finishOrder;
+    }
 
     /** Start a race, resume after Pause, or start over after a finished race.
      */
