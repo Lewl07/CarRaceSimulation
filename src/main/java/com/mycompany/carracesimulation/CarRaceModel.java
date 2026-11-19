@@ -64,10 +64,15 @@ public class CarRaceModel {
     public CarRaceModel() {
         cars.add(new Car((Type.COUPE), 7, startPosition(0), 0, Color.RED));
         cars.add(new Car((Type.SUV), 1, startPosition(1), 0, Color.YELLOW));
-        cars.add(new Car((Type.SEDAN), 9, startPosition(0), 0, Color.WHITE));
-        cars.add(new Car((Type.SUPERCAR), 10, startPosition(0), 0, Color.BLUE));
+        cars.add(new Car((Type.SEDAN), 9, startPosition(2), 0, Color.WHITE));
+        cars.add(new Car((Type.SUPERCAR), 10, startPosition(3), 0, Color.BLUE));
     }
     
+    /**
+     * 
+     * @param lane
+     * @return 
+     */
     private double[][] startPosition(int lane) {
          return new double[][] {
              {START_X, 15 + lane * LANE_HEIGHT }

@@ -6,12 +6,16 @@ import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 public class CarRaceController {
@@ -19,16 +23,31 @@ public class CarRaceController {
     private final CarRaceModel model = new CarRaceModel();
     private List<Image> images = new ArrayList<>();
 
+    // slideshow
     @FXML private Label greetingLbl;
-    @FXML private StackPane racePane;
     @FXML private ImageView slideImage;
     @FXML private StackPane slideshowPane;
     
+    // race
+    @FXML private StackPane racePane;
+    @FXML private AnchorPane trackPane;
+    
+    @FXML private Button startBtn;
+    @FXML private Button pauseBtn;
+    @FXML private Button resetBtn;
+    
+    @FXML private Slider speedSlider;
+    @FXML private Label multiplierLbl;
+    
+    @FXML private Line line1;
+    @FXML private Line line2;
+    @FXML private Line line3;
+    
     public void initialize() {
         greetingLbl.setText(model.getGreeting());
-        racePane.setVisible(false);
-        racePane.setManaged(false);
-        initSlideshow();
+//        racePane.setVisible(false);
+//        racePane.setManaged(false);
+//        initSlideshow();
         
     }
 
@@ -57,7 +76,6 @@ public class CarRaceController {
         MediaPlayer audioPlayer = new MediaPlayer(media);
 
         audioPlayer.setStartTime(Duration.ZERO);
-        audioPlayer.setStopTime(Duration.seconds(16.9));
         audioPlayer.play();
         
         tl.getKeyFrames().add(new KeyFrame(Duration.ZERO, e -> {
@@ -116,6 +134,7 @@ public class CarRaceController {
         tl.getKeyFrames().add(new KeyFrame(Duration.seconds(16.9), e -> {
             slideshowPane.setVisible(false);
             slideshowPane.setVisible(false);
+            audioPlayer.stop();
         }));
         
         tl.play();
