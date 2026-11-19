@@ -14,7 +14,7 @@
 
 <StackPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.carracesimulation.CarRaceController">
    <children>
-      <StackPane fx:id="slideshowPane" prefHeight="600.0" prefWidth="900.0" visible="false">
+      <StackPane fx:id="slideshowPane" prefHeight="600.0" prefWidth="900.0">
          <children>
             <ImageView fx:id="slideImage" fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="greetingLbl" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="506.0" prefWidth="560.0" text="WELCOME TO CAR RACE SIMULATION!">
@@ -50,7 +50,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="198.0" prefWidth="376.0">
                            <children>
-                              <Label alignment="CENTER" layoutX="21.0" layoutY="8.0" prefHeight="58.0" prefWidth="350.0" text="Press Start to begin the Race Simulation !" textAlignment="CENTER" wrapText="true">
+                              <Label fx:id="messageLbl" alignment="TOP_LEFT" layoutX="21.0" layoutY="8.0" prefHeight="170.0" prefWidth="350.0" text="Press Start to begin the Race Simulation !" wrapText="true">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
