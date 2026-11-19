@@ -1,5 +1,6 @@
 package com.mycompany.carracesimulation;
 
+import com.mycompany.carracesimulation.CarRaceModel.State;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.animation.Animation;
@@ -48,6 +49,7 @@ public class CarRaceController {
     @FXML private Label multiplierLbl;
     
     @FXML private Label messageLbl;
+    @FXML private ImageView trophyImage;
     
     @FXML private Line line1;
     @FXML private Line line2;
@@ -61,13 +63,7 @@ public class CarRaceController {
         trackPane.scaleXProperty().bind(Bindings.min(
                 trackHolder.widthProperty().divide(900),
                 trackHolder.heightProperty().divide(380)));
-        
         trackPane.scaleYProperty().bind(trackPane.scaleXProperty());
-        
-//        racePane.setVisible(false);
-//        racePane.setManaged(false);
-//        initSlideshow();
-        
 
         // The slideshow shows first, hence hide the race screen for now
         racePane.setVisible(false);
@@ -80,6 +76,20 @@ public class CarRaceController {
             carShapes.add(shape);
             trackPane.getChildren().add(shape);
         }
+
+        // Speed slider: updates the model and the "1.0x" label
+        speedSlider.setMin(CarRaceModel.MIN_SPEED);
+        speedSlider.setMax(CarRaceModel.MAX_SPEED);
+        speedSlider.setValue(model.getSpeedMultiplier());
+        speedSlider.valueProperty().addListener((obs, oldValue, newValue) -> {
+            model.setSpeedMultiplier(newValue.doubleValue());
+            multiplierLbl.setText(String.format("%.1fx", newValue.doubleValue()));
+        });
+
+        // Buttons
+        startBtn.setOnAction(e -> model.start());
+        pauseBtn.setOnAction(e -> model.pause());
+        resetBtn.setOnAction(e -> model.reset());
 
         // Race loop: every 16 ms, move the cars and refresh the screen
         Timeline raceLoop = new Timeline(new KeyFrame(Duration.millis(16), e -> updateRace()));
