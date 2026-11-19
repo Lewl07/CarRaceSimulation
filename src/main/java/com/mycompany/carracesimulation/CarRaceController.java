@@ -23,6 +23,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class CarRaceController {
@@ -205,6 +206,12 @@ public class CarRaceController {
 
         Rectangle window = new Rectangle(26, 9, 28, 10);
         window.setFill(Color.LIGHTCYAN);
+
+        // The number: black text on a white circle, so it is readable on every color
+        Circle numberBackground = new Circle(40, 31, 10, Color.WHITE);
+        Text number = new Text(String.valueOf(car.num));
+        number.setX(40 - number.getLayoutBounds().getWidth() / 2);    // centered
+        number.setY(35);
 
         // Wheels: a black circle with a grey line through the middle
         Circle wheel1 = new Circle(20, 44, 8, Color.BLACK);
