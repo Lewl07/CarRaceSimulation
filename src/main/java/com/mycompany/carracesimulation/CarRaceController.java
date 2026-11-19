@@ -5,6 +5,7 @@ import java.util.List;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -30,6 +31,7 @@ public class CarRaceController {
     
     // race
     @FXML private StackPane racePane;
+    @FXML private StackPane trackHolder;
     @FXML private AnchorPane trackPane;
     
     @FXML private Button startBtn;
@@ -45,10 +47,21 @@ public class CarRaceController {
     
     public void initialize() {
         greetingLbl.setText(model.getGreeting());
+        
+        
+        // Scale the whole track (lines, and later the cars) with the window.
+        // 900 and 380 are the track's design size. Using the smaller ratio keeps the proportions.
+        trackPane.scaleXProperty().bind(Bindings.min(
+                trackHolder.widthProperty().divide(900),
+                trackHolder.heightProperty().divide(380)));
+        
+        trackPane.scaleYProperty().bind(trackPane.scaleXProperty());
+        
 //        racePane.setVisible(false);
 //        racePane.setManaged(false);
 //        initSlideshow();
         
+
     }
 
     /**

@@ -67,13 +67,17 @@
                   </SplitPane>
                </bottom>
                <center>
-                  <AnchorPane fx:id="trackPane" style="-fx-background-color: #2B2B2B;" BorderPane.alignment="CENTER">
+                  <StackPane fx:id="trackHolder" style="-fx-background-color: #2B2B2B;" BorderPane.alignment="CENTER">
                      <children>
-                        <Line fx:id="line1" endX="796.0" layoutX="104.0" layoutY="95.0" startX="-2100.0" stroke="#b79340" strokeWidth="8.0" />
-                        <Line fx:id="line2" endX="796.0" layoutX="104.0" layoutY="190.0" startX="-2100.0" stroke="#b79340" strokeWidth="8.0" />
-                        <Line fx:id="line3" endX="796.0" layoutX="104.0" layoutY="285.0" startX="-2100.0" stroke="#b79340" strokeWidth="8.0" />
+                        <AnchorPane fx:id="trackPane" maxHeight="380.0" maxWidth="900.0" minHeight="380.0" minWidth="900.0" prefHeight="380.0" prefWidth="900.0" style="-fx-background-color: #2B2B2B;">
+                           <children>
+                              <Line fx:id="line1" endX="4000.0" layoutX="104.0" layoutY="95.0" startX="-2100.0" stroke="#b79340" strokeWidth="8.0" />
+                              <Line fx:id="line2" endX="4000.0" layoutX="104.0" layoutY="190.0" startX="-2100.0" stroke="#b79340" strokeWidth="8.0" />
+                              <Line fx:id="line3" endX="4000.0" layoutX="104.0" layoutY="285.0" startX="-2100.0" stroke="#b79340" strokeWidth="8.0" />
+                           </children>
+                        </AnchorPane>
                      </children>
-                  </AnchorPane>
+                  </StackPane>
                </center>
             </BorderPane>
          </children></StackPane>
