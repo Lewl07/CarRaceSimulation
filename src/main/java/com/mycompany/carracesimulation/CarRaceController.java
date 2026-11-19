@@ -147,6 +147,8 @@ public class CarRaceController {
         tl.getKeyFrames().add(new KeyFrame(Duration.seconds(16.9), e -> {
             slideshowPane.setVisible(false);
             slideshowPane.setVisible(false);
+            racePane.setVisible(true);
+            racePane.setManaged(true);
             audioPlayer.stop();
         }));
         
