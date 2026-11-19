@@ -33,7 +33,7 @@ import javafx.util.Duration;
 public class CarRaceController {
     
     private final CarRaceModel model = new CarRaceModel();
-    private List<Image> images = new ArrayList<>();
+    private final List<Image> images = new ArrayList<>();
     private final List<Group> carShapes = new ArrayList<>();
     private final List<Line> backSpokes = new ArrayList<>();     // the line in each car's back wheel
     private final List<Line> frontSpokes = new ArrayList<>();    // the line in each car's front wheel
@@ -57,10 +57,6 @@ public class CarRaceController {
     
     @FXML private Label messageLbl;
     @FXML private ImageView trophyImage;
-    
-    @FXML private Line line1;
-    @FXML private Line line2;
-    @FXML private Line line3;
     
     public void initialize() {
         greetingLbl.setText(model.getGreeting());
