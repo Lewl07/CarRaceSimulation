@@ -69,9 +69,13 @@ public class CarRaceModel {
     }
     
     /**
-     * 
-     * @param lane
-     * @return 
+     * Calculates the starting position of a car
+     * 1st lane: Red Coupe
+     * 2nd lane: White Sedan
+     * 3rd lane: Blue Supercar
+     * 4rd  lane: Yellow SUV
+     * @param lane the lane
+     * @return the starting position of the car
      */
     private double[][] startPosition(int lane) {
          return new double[][] {
