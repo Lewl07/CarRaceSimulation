@@ -194,24 +194,28 @@ public class CarRaceModel {
         return ranking;
     }
 
-    /** The text for the message area. */
+    /** The text for the message area.
+     */
     public String getMessage() {
-        List<Car> ranking = getRanking();
         String text;
+
         if (state == State.IDLE) {
             return "Press Start to begin the Race Simulation !";
         } else if (state == State.PAUSED) {
             text = "Paused\n";
         } else if (state == State.FINISHED) {
-            text = carName(ranking.get(0)) + " wins!\n";
+            text = carName(finishOrder.get(0)) + " wins!\n";
         } else {
-            text = "Live ranking\n";
+            text = "Ranking\n";
         }
-        for (int i = 0; i < ranking.size(); i++) {
-            text = text + (i + 1) + ". " + carName(ranking.get(i)) + "\n";
+
+        for (int i = 0; i < finishOrder.size(); i++) {
+            text += (i + 1) + ". " + carName(finishOrder.get(i)) + "\n";
         }
+
         return text;
     }
+
 
     private String carName(Car car) {
         return car.color + " " + car.type + " #" + car.num;

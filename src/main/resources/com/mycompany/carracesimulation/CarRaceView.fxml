@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -55,6 +56,11 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
+                              <ImageView fx:id="trophyImage" fitHeight="85.0" fitWidth="85.0" layoutX="285.0" layoutY="35.0" managed="false" preserveRatio="true" visible="false">
+                                  <image>
+                                 <Image url="@images/trophy.png" />
+                             </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                      </items>
@@ -74,6 +80,7 @@
                               <Line fx:id="line1" endX="4000.0" layoutX="104.0" layoutY="95.0" startX="-2100.0" stroke="#b79340" strokeWidth="8.0" />
                               <Line fx:id="line2" endX="4000.0" layoutX="104.0" layoutY="190.0" startX="-2100.0" stroke="#b79340" strokeWidth="8.0" />
                               <Line fx:id="line3" endX="4000.0" layoutX="104.0" layoutY="285.0" startX="-2100.0" stroke="#b79340" strokeWidth="8.0" />
+                              <Line fx:id="finishLine" endX="0.0" endY="376.0" layoutX="860.0" startX="0.0" startY="0.0" stroke="#e53935" strokeWidth="8.0" />
                            </children>
                         </AnchorPane>
                      </children>
