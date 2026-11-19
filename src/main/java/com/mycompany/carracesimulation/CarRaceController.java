@@ -26,6 +26,10 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+/**
+ * 
+ * @author Leo
+ */
 public class CarRaceController {
     
     private final CarRaceModel model = new CarRaceModel();
